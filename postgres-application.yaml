@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-postgres
+  namespace: argocd
+spec:
+  project: default
+  source:
+    # Source for the PostgreSQL Helm chart
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: postgresql
+    # It's best practice to pin the chart version
+    targetRevision: 15.x.x
+    helm:
+      # These values are equivalent to the `--set` flags in the helm command
+      values: |
+        auth:
+          postgresPassword: "postgres"
+          username: "postgres"
+          password: "postgres"
+          database: "django_ledger"
+  destination:
+    # Deploying to the same namespace as your Django app
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true 
