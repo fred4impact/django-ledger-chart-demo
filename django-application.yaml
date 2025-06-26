@@ -6,13 +6,14 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: <your-git-repo-url>
+    repoURL: https://github.com/fred4impact/django-ledger-chart-demo.git
     targetRevision: HEAD
     path: django-ledger-chart
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: test
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true 
+      selfHeal: true
+  

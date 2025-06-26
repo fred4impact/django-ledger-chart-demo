@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: django-app-config
+  namespace: test
+data:
+  DB_HOST: my-postgres-postgresql
+  DB_PORT: "5432"
+  DB_NAME: "django_ledger"
+  DEBUG: "False"
+  STATIC_ROOT: "/data/static"
+  STATIC_URL: "/static/"
+  MEDIA_ROOT: "/data/media"
+  MEDIA_URL: "/media/"
+  CSRF_TRUSTED_ORIGINS: "http://localhost,http://localhost:8000"
+  SECURE_SSL_REDIRECT: "False"
+  SESSION_COOKIE_SECURE: "False"
+  CSRF_COOKIE_SECURE: "False"
+  DATABASE_URL: "postgres://postgres:postgres@my-postgres-postgresql:5432/django_ledger"
+  DJANGO_SETTINGS_MODULE: "django_ledger_starter.settings"
+  ALLOWED_HOSTS: "*" 

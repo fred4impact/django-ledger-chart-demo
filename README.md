@@ -156,3 +156,24 @@ kubectl apply -f django-application.yaml
 - [Helm Docs](https://helm.sh/docs/)
 - [Bitnami PostgreSQL Chart](https://artifacthub.io/packages/helm/bitnami/postgresql)
 - [ArgoCD Docs](https://argo-cd.readthedocs.io/)
+
+---
+
+## DevOps Project: GitOps Deployment of Django + PostgreSQL on Kubernetes with Helm & ArgoCD
+
+- Designed and implemented a production-ready deployment pipeline for a Django web application with a PostgreSQL backend on Kubernetes.
+- Authored and maintained Helm charts to package and template Kubernetes manifests for the Django application, ensuring modular and reusable infrastructure-as-code.
+- Leveraged ArgoCD for GitOps-based continuous deployment, enabling automated, declarative application delivery and version control of all Kubernetes resources.
+- Automated the provisioning of supporting resources (PersistentVolumes, PersistentVolumeClaims, ConfigMaps, Secrets) and database migration jobs to ensure reliable, repeatable environment setup.
+- Wrote comprehensive documentation and troubleshooting guides to streamline onboarding and maintenance for team members.
+- Implemented best practices for secret management, resource namespacing, and application monitoring within Kubernetes.
+- Utilized kubectl and Helm CLI for cluster management, resource debugging, and application lifecycle operations.
+- Ensured high availability and scalability by configuring Kubernetes services, deployments, and ingress resources.
+
+**Key Technologies:** Kubernetes, Helm, ArgoCD, Django, PostgreSQL, GitOps, Docker, YAML, kubectl
+
+---
+
+## Key Project Summary
+
+Deployed a Django web application with a PostgreSQL database on Kubernetes using Helm for templating and ArgoCD for GitOps-based continuous delivery. Automated the setup of all supporting resources, implemented best practices for security and scalability, and documented the entire workflow for streamlined DevOps operations.

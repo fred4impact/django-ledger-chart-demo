@@ -10,7 +10,7 @@ spec:
     repoURL: https://charts.bitnami.com/bitnami
     chart: postgresql
     # It's best practice to pin the chart version
-    targetRevision: 15.x.x
+    targetRevision: 16.x.x
     helm:
       # These values are equivalent to the `--set` flags in the helm command
       values: |
@@ -22,7 +22,7 @@ spec:
   destination:
     # Deploying to the same namespace as your Django app
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: test
   syncPolicy:
     automated:
       prune: true

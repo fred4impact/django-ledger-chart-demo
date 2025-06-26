@@ -1,0 +1,42 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: django-migrate
+  namespace: test
+spec:
+  backoffLimit: 3
+  template:
+    spec:
+      containers:
+      - name: django-migrate
+        image: runtesting/django-ledger:1.0
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        envFrom:
+        - configMapRef:
+            name: django-app-config
+        - secretRef:
+            name: django-app-secret
+        command: ["sh", "-c"]
+        args:
+        - |
+          echo "Waiting for database..."
+          while ! nc -z $DB_HOST $DB_PORT; do
+            sleep 1
+          done
+          echo "Database is ready!"
+          python manage.py migrate
+          python manage.py collectstatic --noinput
+        volumeMounts:
+        - name: django-static-storage
+          mountPath: /data/static
+      volumes:
+      - name: django-static-storage
+        persistentVolumeClaim:
+          claimName: django-static-pvc
+      restartPolicy: OnFailure 
